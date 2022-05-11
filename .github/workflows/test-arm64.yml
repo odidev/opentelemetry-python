@@ -44,8 +44,7 @@ jobs:
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
             arm64v8/ubuntu \
-            bash -exc 'apt-get update && \
-            apt-get install sudo git -y && \
+            bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
             sudo apt update && \
@@ -79,8 +78,7 @@ jobs:
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
             arm64v8/ubuntu \
-            bash -exc 'apt-get update && \
-            apt-get install sudo git -y && \
+            bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
             sudo apt update && \
@@ -114,8 +112,7 @@ jobs:
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
             arm64v8/ubuntu \
-            bash -exc 'apt-get update && \
-            apt-get install sudo git -y && \
+            bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
             sudo apt update && \
@@ -149,8 +146,7 @@ jobs:
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
             arm64v8/ubuntu \
-            bash -exc 'apt-get update && \
-            apt-get install sudo git -y && \
+            bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
             sudo apt update && \
@@ -184,8 +180,7 @@ jobs:
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
             arm64v8/ubuntu \
-            bash -exc 'apt-get update && \
-            apt-get install sudo git -y && \
+            bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
             sudo apt update && \
@@ -217,8 +212,7 @@ jobs:
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
             arm64v8/ubuntu \
-            bash -exc 'apt-get update && \
-            apt-get install sudo git -y && \
+            bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
             sudo apt update && \
@@ -250,8 +244,7 @@ jobs:
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
             arm64v8/ubuntu \
-            bash -exc 'apt-get update && \
-            apt-get install sudo git -y && \
+            bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
             sudo apt update && \
