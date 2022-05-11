@@ -1,0 +1,262 @@
+name: Core Repo ARM64 Tests
+
+on:
+  push:
+    branches-ignore:
+    - 'release/*'
+  pull_request:
+env:
+  # Set variable to 'main' if your change will not affect Contrib.
+  # Otherwise, set variable to the commit of your branch on
+  # opentelemetry-python-contrib which is compatible with these Core repo
+  # changes.
+  CONTRIB_REPO_SHA: 008cd2370dcd3e87cca8c0ddbb0b820681fd7346
+  # This is needed because we do not clone the core repo in contrib builds anymore.
+  # When running contrib builds as part of core builds, we use actions/checkout@v2 which
+  # does not set an environment variable (simply just runs tox), which is different when
+  # contrib builds are run directly from contrib (since test.yml is executed, which sets CORE_REPO_SHA)
+  # The solution is to include CORE_REPO_SHA as part of THIS environment so it can be accessed
+  # from within the contrib build.
+  CORE_REPO_SHA: ${{ github.sha }}          
+
+jobs:
+  build-arm64-36:
+    strategy:
+      matrix:
+        config:
+        - { version: "3.6" }
+        package: ["api", "sdk", "semantic", "getting", "shim", "exporter", "protobuf", "propagator"]
+        os: [ ubuntu-20.04 ]
+      fail-fast: false
+    env:
+      py: python${{ matrix.config.version }}
+      RUN_MATRIX_COMBINATION: py36-${{ matrix.package }}-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Checkout Core Repo @ SHA - ${{ github.sha }}
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Test tox
+      run: |
+            docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
+            arm64v8/ubuntu \
+            bash -exc 'apt-get update && \
+            apt-get install sudo git && \
+            sudo apt-get install software-properties-common -y && \
+            sudo add-apt-repository ppa:deadsnakes/ppa -y && \
+            sudo apt update && \
+            sudo apt install python3.6 && \
+            python3.6 --version && \
+            pip install --upgrade pip && \
+            pip install -U tox-factor && \
+            tox -f py36-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
+            
+  build-arm64-37:
+    strategy:
+      matrix:
+        config:
+        - { version: "3.7" }
+        package: ["api", "sdk", "semantic", "getting", "shim", "exporter", "protobuf", "propagator"]
+        os: [ ubuntu-20.04 ]
+      fail-fast: false
+    env:
+      py: python${{ matrix.config.version }}
+      RUN_MATRIX_COMBINATION: py37-${{ matrix.package }}-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Checkout Core Repo @ SHA - ${{ github.sha }}
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Test tox
+      run: |
+            docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
+            arm64v8/ubuntu \
+            bash -exc 'apt-get update && \
+            apt-get install sudo git && \
+            sudo apt-get install software-properties-common -y && \
+            sudo add-apt-repository ppa:deadsnakes/ppa -y && \
+            sudo apt update && \
+            sudo apt install python3.7 && \
+            python3.7 --version && \
+            pip install --upgrade pip && \
+            pip install -U tox-factor && \
+            tox -f py37-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
+            
+  build-arm64-38:
+    strategy:
+      matrix:
+        config:
+        - { version: "3.8" }
+        package: ["api", "sdk", "semantic", "getting", "shim", "exporter", "protobuf", "propagator"]
+        os: [ ubuntu-20.04 ]
+      fail-fast: false
+    env:
+      py: python${{ matrix.config.version }}
+      RUN_MATRIX_COMBINATION: py38-${{ matrix.package }}-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Checkout Core Repo @ SHA - ${{ github.sha }}
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Test tox
+      run: |
+            docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
+            arm64v8/ubuntu \
+            bash -exc 'apt-get update && \
+            apt-get install sudo git && \
+            sudo apt-get install software-properties-common -y && \
+            sudo add-apt-repository ppa:deadsnakes/ppa -y && \
+            sudo apt update && \
+            sudo apt install python3.8 && \
+            python3.8 --version && \
+            pip install --upgrade pip && \
+            pip install -U tox-factor && \
+            tox -f py38-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
+            
+  build-arm64-39:
+    strategy:
+      matrix:
+        config:
+        - { version: "3.9" }
+        package: ["api", "sdk", "semantic", "getting", "shim", "exporter", "protobuf", "propagator"]
+        os: [ ubuntu-20.04 ]
+      fail-fast: false
+    env:
+      py: python${{ matrix.config.version }}
+      RUN_MATRIX_COMBINATION: py39-${{ matrix.package }}-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Checkout Core Repo @ SHA - ${{ github.sha }}
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Test tox
+      run: |
+            docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
+            arm64v8/ubuntu \
+            bash -exc 'apt-get update && \
+            apt-get install sudo git && \
+            sudo apt-get install software-properties-common -y && \
+            sudo add-apt-repository ppa:deadsnakes/ppa -y && \
+            sudo apt update && \
+            sudo apt install python3.9 && \
+            python3.9 --version && \
+            pip install --upgrade pip && \
+            pip install -U tox-factor && \
+            tox -f py39-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
+ 
+  build-arm64-310:
+    strategy:
+      matrix:
+        config:
+        - { version: "3.10" }
+        package: ["api", "sdk", "semantic", "getting", "shim", "exporter", "protobuf", "propagator"]
+        os: [ ubuntu-20.04 ]
+      fail-fast: false
+    env:
+      py: python${{ matrix.config.version }}
+      RUN_MATRIX_COMBINATION: py310-${{ matrix.package }}-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Checkout Core Repo @ SHA - ${{ github.sha }}
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Test tox
+      run: |
+            docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
+            arm64v8/ubuntu \
+            bash -exc 'apt-get update && \
+            apt-get install sudo git && \
+            sudo apt-get install software-properties-common -y && \
+            sudo add-apt-repository ppa:deadsnakes/ppa -y && \
+            sudo apt update && \
+            sudo apt install python3.10 && \
+            python3.10 --version && \
+            pip install --upgrade pip && \
+            pip install -U tox-factor && \
+            tox -f py310-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
+            
+  build-misc-arm64:
+    strategy:
+      matrix:
+        config:
+        - { version: "3.9" }
+        tox-environment: [ "docker-tests", "lint", "docs", "mypy", "mypyinstalled", "tracecontext" ]
+      fail-fast: false
+    env:
+      py: python${{ matrix.config.version }}
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Checkout Core Repo @ SHA - ${{ github.sha }}
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Test Misc
+      run: |
+            docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
+            arm64v8/ubuntu \
+            bash -exc 'apt-get update && \
+            apt-get install sudo git && \
+            sudo apt-get install software-properties-common -y && \
+            sudo add-apt-repository ppa:deadsnakes/ppa -y && \
+            sudo apt update && \
+            sudo apt install python3.9 && \
+            python3.9 --version && \
+            pip install --upgrade pip && \
+            pip install -U tox && \
+            tox -e ${{ matrix.tox-environment }}'
+
+  build-contrib-arm64:
+    strategy:
+      matrix:
+        config:
+        - { version: "3.6" }
+        package: ["instrumentation", "exporter"]
+      fail-fast: false
+    env:
+      py: python${{ matrix.config.version }}
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Checkout Core Repo @ SHA - ${{ github.sha }}
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Test contrib build
+      run: |
+            docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
+            arm64v8/ubuntu \
+            bash -exc 'apt-get update && \
+            apt-get install sudo git && \
+            sudo apt-get install software-properties-common -y && \
+            sudo add-apt-repository ppa:deadsnakes/ppa -y && \
+            sudo apt update && \
+            sudo apt install python3.6 && \
+            python3.6 --version && \
+            pip install --upgrade pip && \
+            pip install -U tox-factor && \
+            tox -f py36-${{ matrix.package }}'
