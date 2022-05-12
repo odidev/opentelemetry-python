@@ -43,7 +43,7 @@ jobs:
     - name: Test tox
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
-            arm64v8/ubuntu \
+            arm64v8/ubuntu:20 \
             bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
@@ -77,7 +77,7 @@ jobs:
     - name: Test tox
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
-            arm64v8/ubuntu \
+            arm64v8/ubuntu:20 \
             bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
@@ -111,7 +111,7 @@ jobs:
     - name: Test tox
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
-            arm64v8/ubuntu \
+            arm64v8/ubuntu:20 \
             bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
@@ -145,7 +145,7 @@ jobs:
     - name: Test tox
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
-            arm64v8/ubuntu \
+            arm64v8/ubuntu:20 \
             bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
@@ -179,7 +179,7 @@ jobs:
     - name: Test tox
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
-            arm64v8/ubuntu \
+            arm64v8/ubuntu:20 \
             bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
@@ -211,7 +211,7 @@ jobs:
     - name: Test Misc
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
-            arm64v8/ubuntu \
+            arm64v8/ubuntu:20 \
             bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
@@ -243,7 +243,7 @@ jobs:
     - name: Test contrib build
       run: |
             docker run --rm -v ${{ github.workspace }}:/io:rw --workdir=/io \
-            arm64v8/ubuntu \
+            arm64v8/ubuntu:20 \
             bash -exc 'apt-get install sudo git -y && \
             sudo apt-get install software-properties-common -y && \
             sudo add-apt-repository ppa:deadsnakes/ppa -y && \
