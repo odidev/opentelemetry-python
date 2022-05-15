@@ -50,6 +50,7 @@ jobs:
             apt update && \
             apt install python3.6 -y && \
             python3.6 --version && \
+            apt install pip -y && \
             pip install --upgrade pip && \
             pip install -U tox-factor && \
             tox -f py36-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -84,6 +85,7 @@ jobs:
             apt update && \
             apt install python3.7 -y && \
             python3.7 --version && \
+            apt install pip -y && \
             pip install --upgrade pip && \
             pip install -U tox-factor && \
             tox -f py37-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -118,6 +120,7 @@ jobs:
             apt update && \
             apt install python3.8 -y && \
             python3.8 --version && \
+            apt install pip -y && \
             pip install --upgrade pip && \
             pip install -U tox-factor && \
             tox -f py38-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -152,6 +155,7 @@ jobs:
             apt update && \
             apt install python3.9 -y && \
             python3.9 --version && \
+            apt install pip -y && \
             pip install --upgrade pip && \
             pip install -U tox-factor && \
             tox -f py39-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -186,6 +190,7 @@ jobs:
             apt update && \
             apt install python3.10 -y && \
             python3.10 --version && \
+            apt install pip -y && \
             pip install --upgrade pip && \
             pip install -U tox-factor && \
             tox -f py310-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -218,6 +223,7 @@ jobs:
             apt update && \
             apt install python3.9 -y && \
             python3.9 --version && \
+            apt install pip -y && \
             pip install --upgrade pip && \
             pip install -U tox && \
             tox -e ${{ matrix.tox-environment }}'
@@ -250,6 +256,7 @@ jobs:
             apt update && \
             apt install python3.6 -y && \
             python3.6 --version && \
+            apt install pip -y && \
             pip install --upgrade pip && \
             pip install -U tox-factor && \
             tox -f py36-${{ matrix.package }}'
