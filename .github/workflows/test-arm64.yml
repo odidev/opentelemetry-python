@@ -50,8 +50,11 @@ jobs:
             apt update && \
             apt install python3.6 -y && \
             python3.6 --version && \
-            apt-get install python3-pip pip -y && \
+            apt-get install python3-pip pip git -y && \
             pip install --upgrade pip && \
+            apt install -y python3.6-venv && \
+            python3.6 -m venv .env && \
+            source .env/bin/activate && \
             pip --version && \
             python3.6 -m pip install -U tox-factor && \
             python3.6 -m tox -f py36-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -86,8 +89,11 @@ jobs:
             apt update && \
             apt install python3.7 -y && \
             python3.7 --version && \
-            apt-get install python3-pip pip -y && \
+            apt-get install python3-pip pip git -y && \
             pip install --upgrade pip && \
+            apt install -y python3.7-venv && \
+            python3.7 -m venv .env && \
+            source .env/bin/activate && \
             pip --version && \
             python3.7 -m pip install -U tox-factor && \
             python3.7 -m tox -f py37-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -122,8 +128,11 @@ jobs:
             apt update && \
             apt install python3.8 -y && \
             python3.8 --version && \
-            apt-get install python3-pip pip -y && \
+            apt-get install python3-pip pip git -y && \
             pip install --upgrade pip && \
+            apt install -y python3.8-venv && \
+            python3.8 -m venv .env && \
+            source .env/bin/activate && \
             pip --version && \
             python3.8 -m pip install -U tox-factor && \
             python3.8 -m tox -f py38-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -158,8 +167,11 @@ jobs:
             apt update && \
             apt install python3.9 -y && \
             python3.9 --version && \
-            apt-get install python3-pip pip -y && \
+            apt-get install python3-pip pip git -y && \
             pip install --upgrade pip && \
+            apt install -y python3.9-venv && \
+            python3.9 -m venv .env && \
+            source .env/bin/activate && \
             pip --version && \
             python3.9 -m pip install -U tox-factor && \
             python3.9 -m tox -f py39-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -194,8 +206,11 @@ jobs:
             apt update && \
             apt install python3.10 -y && \
             python3.10 --version && \
-            apt-get install python3-pip pip -y && \
+            apt-get install python3-pip pip git -y && \
             pip install --upgrade pip && \
+            apt install -y python3.10-venv && \
+            python3.10 -m venv .env && \
+            source .env/bin/activate && \
             pip --version && \
             python3.10 -m pip install -U tox-factor && \
             python3.10 -m tox -f py310-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
@@ -228,8 +243,11 @@ jobs:
             apt update && \
             apt install python3.9 -y && \
             python3.9 --version && \
-            apt-get install python3-pip pip -y && \
+            apt-get install python3-pip pip git -y && \
             pip install --upgrade pip && \
+            apt install -y python3.9-venv && \
+            python3.9 -m venv .env && \
+            source .env/bin/activate && \
             pip --version && \
             python3.9 -m pip install -U tox && \
             python3.9 -m tox -e ${{ matrix.tox-environment }}'
@@ -262,8 +280,11 @@ jobs:
             apt update && \
             apt install python3.6 -y && \
             python3.6 --version && \
-            apt-get install python3-pip pip -y && \
+            apt-get install python3-pip pip git -y && \
             pip install --upgrade pip && \
+            apt install -y python3.6-venv && \
+            python3.6 -m venv .env && \
+            source .env/bin/activate && \
             pip --version && \
             python3.6 -m pip install -U tox-factor && \
             python3.6 -m tox -f py36-${{ matrix.package }}'
