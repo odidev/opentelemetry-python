@@ -50,7 +50,7 @@ jobs:
             apt update && \
             apt install python3.6 -y && \
             python3.6 --version && \
-            apt-get install python3-pip && \
+            apt-get install python3-pip -y && \
             python3.6 -m pip install -U tox-factor && \
             python3.6 -m tox -f py36-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
             
@@ -84,7 +84,7 @@ jobs:
             apt update && \
             apt install python3.7 -y && \
             python3.7 --version && \
-            apt-get install python3-pip && \
+            apt-get install python3-pip -y && \
             python3.7 -m pip install -U tox-factor && \
             python3.7 -m tox -f py37-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
             
@@ -118,7 +118,7 @@ jobs:
             apt update && \
             apt install python3.8 -y && \
             python3.8 --version && \
-            apt-get install python3-pip && \
+            apt-get install python3-pip -y && \
             python3.8 -m pip install -U tox-factor && \
             python3.8 -m tox -f py38-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
             
@@ -152,7 +152,7 @@ jobs:
             apt update && \
             apt install python3.9 -y && \
             python3.9 --version && \
-            apt-get install python3-pip && \
+            apt-get install python3-pip -y && \
             python3.9 -m pip install -U tox-factor && \
             python3.9 -m tox -f py39-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
  
@@ -186,7 +186,7 @@ jobs:
             apt update && \
             apt install python3.10 -y && \
             python3.10 --version && \
-            apt-get install python3-pip && \
+            apt-get install python3-pip -y && \
             python3.10 -m pip install -U tox-factor && \
             python3.10 -m tox -f py310-${{ matrix.package }} -- --benchmark-json=${{ env.RUN_MATRIX_COMBINATION }}-benchmark.json'
             
@@ -218,7 +218,7 @@ jobs:
             apt update && \
             apt install python3.9 -y && \
             python3.9 --version && \
-            apt-get install python3-pip && \
+            apt-get install python3-pip -y && \
             python3.9 -m pip install -U tox && \
             python3.9 -m tox -e ${{ matrix.tox-environment }}'
 
@@ -250,6 +250,6 @@ jobs:
             apt update && \
             apt install python3.6 -y && \
             python3.6 --version && \
-            apt-get install python3-pip && \
+            apt-get install python3-pip -y && \
             python3.6 -m pip install -U tox-factor && \
             python3.6 -m tox -f py36-${{ matrix.package }}'
