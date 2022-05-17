@@ -210,7 +210,7 @@ jobs:
       matrix:
         config:
         - { version: "3.9" }
-        tox-environment: [ "docker-tests", "lint", "docs", "mypy", "mypyinstalled", "tracecontext" ]
+        tox-environment: [ "docker-tests", "docs", "mypy", "mypyinstalled", "tracecontext" ]
       fail-fast: false
     env:
       py: python${{ matrix.config.version }}
